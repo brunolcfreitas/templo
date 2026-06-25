@@ -347,7 +347,7 @@ function Programacao() {
                 key={i}
                 className="rounded-3xl bg-card border border-border/50 overflow-hidden animate-pulse"
               >
-                <div className="aspect-[4/5] bg-muted" />
+                <div className="aspect-square bg-muted" />
                 <div className="p-5 space-y-3">
                   <div className="h-4 bg-muted rounded w-1/2" />
                   <div className="h-12 bg-muted rounded" />
