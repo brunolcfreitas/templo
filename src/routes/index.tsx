@@ -238,7 +238,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
         </div>
       )}
 
-      <div className="aspect-[4/5] w-full overflow-hidden bg-muted relative">
+      <div className="aspect-square w-full overflow-hidden bg-muted relative">
         <img
           src={event.foto && event.foto.trim() !== "" ? event.foto : fallbackImg}
           alt={event.artista}
