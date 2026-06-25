@@ -70,7 +70,7 @@ export async function fetchEvents(): Promise<ShowEvent[]> {
   const upcoming = events
     .filter(e => e.dateObj && e.dateObj >= today)
     .sort((a, b) => (a.dateObj!.getTime() - b.dateObj!.getTime()));
-  return upcoming.length ? upcoming : events;
+  return upcoming;
 }
 
 export function formatDatePt(d: Date | null, fallback: string): string {
