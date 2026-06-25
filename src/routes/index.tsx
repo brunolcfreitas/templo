@@ -228,7 +228,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
 
   return (
     <article
-      className={`group relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-deep hover:shadow-glow transition-all duration-500 hover:-translate-y-2 ${
+      className={`group relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-deep hover:shadow-glow transition-all duration-500 hover:-translate-y-2 flex flex-col h-full ${
         hasPromo ? "ring-2 ring-secondary" : ""
       }`}
     >
@@ -267,7 +267,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
         </h3>
       </div>
 
-      <div className="p-5 space-y-4">
+      <div className="p-5 space-y-4 flex flex-col flex-1">
         {(event.entradaMasculina || event.entradaFeminina) && (
           <div className="grid grid-cols-2 gap-2 text-xs">
             {event.entradaMasculina && (
@@ -303,7 +303,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
           href={event.link && event.link.trim() !== "" ? event.link : WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl bg-sunset text-primary-foreground font-bold uppercase tracking-[0.15em] text-xs hover:scale-[1.02] transition-transform shadow-glow"
+          className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl bg-sunset text-primary-foreground font-bold uppercase tracking-[0.15em] text-xs hover:scale-[1.02] transition-transform shadow-glow"
         >
           <Ticket className="w-4 h-4" />
           Garanta seu lugar!
