@@ -267,7 +267,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
         </h3>
       </div>
 
-      <div className="p-5 space-y-4">
+      <div className="p-5 space-y-4 flex flex-col flex-1">
         {(event.entradaMasculina || event.entradaFeminina) && (
           <div className="grid grid-cols-2 gap-2 text-xs">
             {event.entradaMasculina && (
