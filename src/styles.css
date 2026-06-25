@@ -28,50 +28,59 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-gold: var(--gold);
+  --color-sun: var(--sun);
   --color-flame: var(--flame);
-  --color-ember: var(--ember);
-  --font-display: "Bebas Neue", "Impact", sans-serif;
-  --font-sans: "Poppins", system-ui, sans-serif;
+  --color-violet: var(--violet);
+  --color-night: var(--night);
+  --font-display: "Syne", "Bebas Neue", sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
-  /* Deep stage-night background */
-  --background: oklch(0.16 0.04 30);
-  --foreground: oklch(0.98 0.01 80);
-  --card: oklch(0.22 0.06 35);
-  --card-foreground: oklch(0.98 0.01 80);
-  --popover: oklch(0.22 0.06 35);
-  --popover-foreground: oklch(0.98 0.01 80);
-  /* Vibrant samba red */
-  --primary: oklch(0.62 0.22 25);
-  --primary-foreground: oklch(0.99 0.01 80);
-  /* Warm gold */
-  --secondary: oklch(0.78 0.16 80);
-  --secondary-foreground: oklch(0.18 0.04 30);
-  --muted: oklch(0.28 0.04 30);
-  --muted-foreground: oklch(0.78 0.03 70);
-  --accent: oklch(0.72 0.2 55);
-  --accent-foreground: oklch(0.16 0.04 30);
-  --destructive: oklch(0.6 0.24 20);
-  --destructive-foreground: oklch(0.99 0.01 80);
-  --border: oklch(0.32 0.06 40);
-  --input: oklch(0.28 0.05 35);
-  --ring: oklch(0.78 0.16 80);
+  --radius: 1rem;
 
-  --gold: oklch(0.82 0.17 85);
-  --flame: oklch(0.68 0.23 40);
-  --ember: oklch(0.58 0.24 28);
+  /* Carnaval Solar */
+  --night: #1A0E2E;
+  --violet: #7A2BE2;
+  --flame: #FF6B2C;
+  --sun: #FFD23F;
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.58 0.24 28) 0%, oklch(0.68 0.23 40) 50%, oklch(0.82 0.17 85) 100%);
-  --gradient-stage: radial-gradient(ellipse at top, oklch(0.35 0.12 40) 0%, oklch(0.16 0.04 30) 70%);
-  --gradient-card: linear-gradient(160deg, oklch(0.26 0.07 35) 0%, oklch(0.18 0.05 30) 100%);
-  --gradient-gold: linear-gradient(90deg, oklch(0.78 0.16 80), oklch(0.88 0.14 90), oklch(0.78 0.16 80));
+  --background: #1A0E2E;
+  --foreground: #FFF6E8;
 
-  --shadow-glow: 0 0 40px oklch(0.68 0.23 40 / 0.4), 0 0 80px oklch(0.78 0.16 80 / 0.2);
-  --shadow-card: 0 20px 50px -10px oklch(0 0 0 / 0.6);
-  --shadow-stage: 0 30px 90px -20px oklch(0.62 0.22 25 / 0.5);
+  --card: #251544;
+  --card-foreground: #FFF6E8;
+  --popover: #251544;
+  --popover-foreground: #FFF6E8;
+
+  --primary: #FF6B2C;
+  --primary-foreground: #1A0E2E;
+
+  --secondary: #FFD23F;
+  --secondary-foreground: #1A0E2E;
+
+  --muted: #2C1A52;
+  --muted-foreground: #C8B6E6;
+
+  --accent: #7A2BE2;
+  --accent-foreground: #FFF6E8;
+
+  --destructive: #ff3355;
+  --destructive-foreground: #FFF6E8;
+
+  --border: #3A2168;
+  --input: #2C1A52;
+  --ring: #FFD23F;
+
+  --gradient-sunset: linear-gradient(135deg, #7A2BE2 0%, #FF6B2C 55%, #FFD23F 100%);
+  --gradient-night: linear-gradient(180deg, #1A0E2E 0%, #2C1A52 55%, #1A0E2E 100%);
+  --gradient-card: linear-gradient(160deg, rgba(122,43,226,0.22) 0%, rgba(255,107,44,0.10) 100%);
+  --gradient-text: linear-gradient(90deg, #FFD23F 0%, #FF6B2C 50%, #FFD23F 100%);
+  --gradient-violet: linear-gradient(135deg, #2C1A52 0%, #7A2BE2 100%);
+
+  --shadow-glow: 0 0 50px rgba(255,107,44,0.45), 0 0 120px rgba(122,43,226,0.35);
+  --shadow-sun: 0 10px 40px -5px rgba(255,210,63,0.55);
+  --shadow-card: 0 25px 60px -15px rgba(0,0,0,0.7);
 }
 
 .dark { color-scheme: dark; }
@@ -80,40 +89,68 @@
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--gradient-stage);
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(122,43,226,0.35), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 90% 30%, rgba(255,107,44,0.25), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,210,63,0.15), transparent 60%),
+      var(--background);
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
+    font-weight: 800;
   }
 }
 
-@utility text-gradient-gold {
-  background: var(--gradient-gold);
+@utility text-gradient-sun {
+  background: var(--gradient-text);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: shine 4s linear infinite;
+  animation: shine 5s linear infinite;
 }
 
-@utility bg-hero-gradient {
-  background: var(--gradient-hero);
+@utility bg-sunset {
+  background: var(--gradient-sunset);
 }
 
-@utility bg-card-gradient {
+@utility bg-violet-gradient {
+  background: var(--gradient-violet);
+}
+
+@utility bg-card-glass {
   background: var(--gradient-card);
+  backdrop-filter: blur(10px);
 }
 
 @utility shadow-glow {
   box-shadow: var(--shadow-glow);
 }
 
-@utility shadow-card-deep {
+@utility shadow-sun {
+  box-shadow: var(--shadow-sun);
+}
+
+@utility shadow-deep {
   box-shadow: var(--shadow-card);
+}
+
+@utility noise {
+  position: relative;
+}
+@utility noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 @keyframes shine {
@@ -121,19 +158,36 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px oklch(0.68 0.23 40 / 0.5); }
-  50% { box-shadow: 0 0 40px oklch(0.78 0.16 80 / 0.7); }
+  0%, 100% { box-shadow: 0 0 30px rgba(255,107,44,0.5); }
+  50% { box-shadow: 0 0 60px rgba(255,210,63,0.75); }
 }
 
 @utility animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: pulse-glow 2.4s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
 }
 
 @utility animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@utility animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
 }
