@@ -303,7 +303,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
           href={event.link && event.link.trim() !== "" ? event.link : WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl bg-sunset text-primary-foreground font-bold uppercase tracking-[0.15em] text-xs hover:scale-[1.02] transition-transform shadow-glow"
+          className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-2xl bg-sunset text-primary-foreground font-bold uppercase tracking-[0.15em] text-xs hover:scale-[1.02] transition-transform shadow-glow"
         >
           <Ticket className="w-4 h-4" />
           Garanta seu lugar!
