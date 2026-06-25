@@ -228,7 +228,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
 
   return (
     <article
-      className={`group relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-deep hover:shadow-glow transition-all duration-500 hover:-translate-y-2 ${
+      className={`group relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-deep hover:shadow-glow transition-all duration-500 hover:-translate-y-2 flex flex-col h-full ${
         hasPromo ? "ring-2 ring-secondary" : ""
       }`}
     >
