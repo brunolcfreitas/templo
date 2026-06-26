@@ -250,24 +250,24 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
 
-        <div className="absolute top-4 right-4 flex flex-col items-end gap-2">
-          <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-secondary text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-secondary/30">
-            <Calendar className="w-3 h-3" />
-            {formatDatePt(event.dateObj, event.data)}
-          </span>
-          {event.horario && (
-            <span className="px-3 py-1.5 rounded-full bg-background/80 backdrop-blur-md text-foreground text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-border">
-              <Clock className="w-3 h-3" /> {event.horario}
-            </span>
-          )}
-        </div>
-
         <h3 className="absolute bottom-4 left-5 right-5 font-display text-3xl md:text-4xl leading-[0.95] text-foreground drop-shadow-lg">
           {event.artista}
         </h3>
       </div>
 
       <div className="p-5 space-y-4 flex flex-col flex-1">
+        <div className="flex flex-wrap gap-2">
+          <span className="px-3 py-1.5 rounded-full bg-muted/60 text-secondary text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-secondary/30">
+            <Calendar className="w-3 h-3" />
+            {formatDatePt(event.dateObj, event.data)}
+          </span>
+          {event.horario && (
+            <span className="px-3 py-1.5 rounded-full bg-muted/60 text-foreground text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-border">
+              <Clock className="w-3 h-3" /> {event.horario}
+            </span>
+          )}
+        </div>
+
         {(event.entradaMasculina || event.entradaFeminina) && (
           <div className="grid grid-cols-2 gap-2 text-xs">
             {event.entradaMasculina && (
