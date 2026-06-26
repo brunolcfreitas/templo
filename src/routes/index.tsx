@@ -273,7 +273,7 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
             {event.entradaMasculina && (
               <div className="rounded-xl bg-muted/60 px-3 py-2.5 border border-border/40">
                 <div className="text-muted-foreground uppercase tracking-[0.18em] text-[9px] mb-0.5">
-                  Masc.
+                  Homens
                 </div>
                 <div className="font-bold text-foreground text-sm">
                   {event.entradaMasculina}
@@ -283,7 +283,8 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
             {event.entradaFeminina && (
               <div className="rounded-xl bg-muted/60 px-3 py-2.5 border border-border/40">
                 <div className="text-muted-foreground uppercase tracking-[0.18em] text-[9px] mb-0.5">
-                  Fem.
+                  Mulheres
+
                 </div>
                 <div className="font-bold text-foreground text-sm">
                   {event.entradaFeminina}
