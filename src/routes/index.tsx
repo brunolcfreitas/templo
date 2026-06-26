@@ -139,7 +139,7 @@ function Hero() {
           allowFullScreen
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/35 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#1A0E2E_85%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#000000_85%)]" />
       </div>
 
       {/* Decorative sun ring */}
