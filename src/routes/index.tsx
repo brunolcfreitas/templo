@@ -407,7 +407,7 @@ function Localizacao() {
             <MapPin className="w-3 h-3" /> Onde estamos
           </div>
           <h2 className="font-display text-6xl md:text-8xl leading-[0.9] text-gradient-sun italic">
-            Venha pro Templo
+            #vemtemplar
           </h2>
         </div>
 
