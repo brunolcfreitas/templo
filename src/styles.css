@@ -32,55 +32,56 @@
   --color-flame: var(--flame);
   --color-violet: var(--violet);
   --color-night: var(--night);
-  --font-display: "Syne", "Bebas Neue", sans-serif;
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Bebas Neue", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
 :root {
   --radius: 1rem;
 
-  /* Carnaval Solar */
-  --night: #1A0E2E;
-  --violet: #7A2BE2;
-  --flame: #FF6B2C;
-  --sun: #FFD23F;
+  /* Templo palette */
+  --night: #000000;
+  --violet: #007dfd;   /* blue */
+  --flame: #b23438;    /* red */
+  --sun: #ffd12d;      /* yellow */
+  --pink: #e52c88;     /* pink */
 
-  --background: #1A0E2E;
-  --foreground: #FFF6E8;
+  --background: #000000;
+  --foreground: #ffffff;
 
-  --card: #251544;
-  --card-foreground: #FFF6E8;
-  --popover: #251544;
-  --popover-foreground: #FFF6E8;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --popover: #0a0a0a;
+  --popover-foreground: #ffffff;
 
-  --primary: #FF6B2C;
-  --primary-foreground: #1A0E2E;
+  --primary: #b23438;
+  --primary-foreground: #ffffff;
 
-  --secondary: #FFD23F;
-  --secondary-foreground: #1A0E2E;
+  --secondary: #ffd12d;
+  --secondary-foreground: #000000;
 
-  --muted: #2C1A52;
-  --muted-foreground: #C8B6E6;
+  --muted: #141414;
+  --muted-foreground: #b8b8b8;
 
-  --accent: #7A2BE2;
-  --accent-foreground: #FFF6E8;
+  --accent: #e52c88;
+  --accent-foreground: #ffffff;
 
-  --destructive: #ff3355;
-  --destructive-foreground: #FFF6E8;
+  --destructive: #b23438;
+  --destructive-foreground: #ffffff;
 
-  --border: #3A2168;
-  --input: #2C1A52;
-  --ring: #FFD23F;
+  --border: #1f1f1f;
+  --input: #141414;
+  --ring: #ffd12d;
 
-  --gradient-sunset: linear-gradient(135deg, #7A2BE2 0%, #FF6B2C 55%, #FFD23F 100%);
-  --gradient-night: linear-gradient(180deg, #1A0E2E 0%, #2C1A52 55%, #1A0E2E 100%);
-  --gradient-card: linear-gradient(160deg, rgba(122,43,226,0.22) 0%, rgba(255,107,44,0.10) 100%);
-  --gradient-text: linear-gradient(90deg, #FFD23F 0%, #FF6B2C 50%, #FFD23F 100%);
-  --gradient-violet: linear-gradient(135deg, #2C1A52 0%, #7A2BE2 100%);
+  --gradient-sunset: linear-gradient(135deg, #b23438 0%, #e52c88 55%, #ffd12d 100%);
+  --gradient-night: linear-gradient(180deg, #000000 0%, #0a0a0a 55%, #000000 100%);
+  --gradient-card: linear-gradient(160deg, rgba(0,125,253,0.18) 0%, rgba(229,44,136,0.10) 100%);
+  --gradient-text: linear-gradient(90deg, #ffd12d 0%, #e52c88 50%, #ffd12d 100%);
+  --gradient-violet: linear-gradient(135deg, #007dfd 0%, #e52c88 100%);
 
-  --shadow-glow: 0 0 50px rgba(255,107,44,0.45), 0 0 120px rgba(122,43,226,0.35);
-  --shadow-sun: 0 10px 40px -5px rgba(255,210,63,0.55);
-  --shadow-card: 0 25px 60px -15px rgba(0,0,0,0.7);
+  --shadow-glow: 0 0 50px rgba(229,44,136,0.45), 0 0 120px rgba(0,125,253,0.30);
+  --shadow-sun: 0 10px 40px -5px rgba(255,209,45,0.55);
+  --shadow-card: 0 25px 60px -15px rgba(0,0,0,0.85);
 }
 
 .dark { color-scheme: dark; }
@@ -90,10 +91,11 @@
   html { scroll-behavior: smooth; }
   body {
     background:
-      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(122,43,226,0.35), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 90% 30%, rgba(255,107,44,0.25), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,210,63,0.15), transparent 60%),
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(0,125,253,0.28), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 90% 30%, rgba(229,44,136,0.22), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,209,45,0.14), transparent 60%),
       var(--background);
+
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
