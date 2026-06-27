@@ -85,7 +85,7 @@ function Nav() {
           href="#programacao"
           className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary text-secondary-foreground font-bold text-xs uppercase tracking-[0.15em] hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 shadow-sun"
         >
-          <Ticket className="w-4 h-4" /> Ingressos
+          <Ticket className="w-4 h-4" /> Garanta seu lugar!
         </a>
 
         <button
