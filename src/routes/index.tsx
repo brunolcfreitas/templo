@@ -16,6 +16,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { fetchEvents, formatDatePt, type ShowEvent } from "@/lib/events";
+import logoTemplo from "@/assets/logo-templo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
