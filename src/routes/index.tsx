@@ -257,12 +257,12 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
 
       <div className="p-5 space-y-4 flex flex-col flex-1">
         <div className="flex flex-wrap gap-2">
-          <span className="px-3 py-1.5 rounded-full bg-muted/60 text-secondary text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-secondary/30">
+          <span className="px-3 py-1.5 rounded-full bg-muted/60 text-white text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-secondary/30">
             <Calendar className="w-3 h-3" />
             {formatDatePt(event.dateObj, event.data)}
           </span>
           {event.horario && (
-            <span className="px-3 py-1.5 rounded-full bg-muted/60 text-foreground text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-border">
+            <span className="px-3 py-1.5 rounded-full bg-muted/60 text-white text-[10px] font-bold uppercase tracking-[0.18em] flex items-center gap-1.5 border border-border">
               <Clock className="w-3 h-3" /> {event.horario}
             </span>
           )}
