@@ -470,18 +470,12 @@ function Footer() {
     <footer id="contato" className="relative pt-20 pb-32 px-5 sm:px-8 bg-background/60">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
         <div>
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-12 rounded-2xl bg-sunset shadow-glow flex items-center justify-center rotate-3">
-              <Music2 className="w-6 h-6 text-primary-foreground" strokeWidth={2.5} />
-            </div>
-            <div>
-              <div className="font-display text-2xl text-gradient-sun tracking-tight">
-                TEMPLO
-              </div>
-              <div className="text-[9px] uppercase tracking-[0.35em] text-muted-foreground mt-1">
-                Bar de Fé
-              </div>
-            </div>
+          <div className="mb-5">
+            <img
+              src={logoTemplo}
+              alt="Templo Bar de Fé"
+              className="h-20 w-auto object-contain"
+            />
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
             A casa que pulsa samba no coração da Mooca. Pagode, roda de samba e a melhor
