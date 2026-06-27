@@ -279,13 +279,18 @@ function EventCard({ event, index }: { event: ShowEvent; index: number }) {
               <div className="rounded-xl bg-muted/60 px-3 py-2.5 border border-border/40">
                 <div className="text-muted-foreground uppercase tracking-[0.18em] text-[9px] mb-0.5">
                   Mulheres
-
                 </div>
                 <div className="font-bold text-foreground text-sm">
                   {event.entradaFeminina}
                 </div>
               </div>
             )}
+          </div>
+        )}
+
+        {!(event.entradaMasculina || event.entradaFeminina) && (
+          <div className="rounded-xl bg-secondary/15 border border-secondary/40 px-3 py-2.5 text-xs text-secondary font-bold leading-relaxed">
+            Show com venda de ingressos antecipada!
           </div>
         )}
 
