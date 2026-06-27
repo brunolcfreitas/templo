@@ -62,17 +62,11 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
         <a href="#topo" className="flex items-center gap-3 group">
-          <div className="relative w-11 h-11 rounded-2xl bg-sunset shadow-glow flex items-center justify-center rotate-3 group-hover:rotate-0 transition-transform duration-500">
-            <Music2 className="w-5 h-5 text-primary-foreground" strokeWidth={2.5} />
-          </div>
-          <div className="leading-none">
-            <div className="font-display text-2xl tracking-tight text-gradient-sun">
-              TEMPLO
-            </div>
-            <div className="text-[9px] uppercase tracking-[0.35em] text-muted-foreground mt-1">
-              Bar de Fé
-            </div>
-          </div>
+          <img
+            src={logoTemplo}
+            alt="Templo Bar de Fé"
+            className="h-12 md:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-500"
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-10 text-[13px] uppercase tracking-[0.18em] font-semibold">
