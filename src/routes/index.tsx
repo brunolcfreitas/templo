@@ -716,6 +716,7 @@ function HomePage() {
       <Hero />
       <Marquee />
       <Programacao />
+      <SobreTemplo />
       <Localizacao />
       <Footer />
       <WhatsAppFloat />
