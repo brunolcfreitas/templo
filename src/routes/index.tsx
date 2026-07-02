@@ -7,6 +7,7 @@ import {
   MapPin,
   Instagram,
   Facebook,
+  Youtube,
   Music2,
   Sparkles,
   Ticket,
@@ -653,7 +654,7 @@ function Footer() {
           </h4>
           <div className="flex gap-3">
             <a
-              href="https://www.instagram.com/templobardefe"
+              href="https://www.instagram.com/bartemplo/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -662,7 +663,7 @@ function Footer() {
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="https://www.facebook.com/templobardefe"
+              href="https://www.facebook.com/bartemplo"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -671,16 +672,15 @@ function Footer() {
               <Facebook className="w-5 h-5" />
             </a>
             <a
-              href={WHATSAPP_URL}
+              href="http://youtube.com/bartemplo"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp"
+              aria-label="YouTube"
               className="w-11 h-11 rounded-full bg-card border border-border flex items-center justify-center hover:bg-sunset hover:border-transparent hover:text-primary-foreground transition-all"
             >
-              <WaIcon />
+              <Youtube className="w-5 h-5" />
             </a>
           </div>
-          <p className="mt-6 text-xs text-muted-foreground">+55 11 94986-1693</p>
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-16 pt-6 border-t border-border/60 text-center text-xs text-muted-foreground">
