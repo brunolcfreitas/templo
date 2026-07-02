@@ -397,6 +397,126 @@ function Programacao() {
   );
 }
 
+/* ---------------- SOBRE ---------------- */
+function SobreTemplo() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  const fotos = [
+    "https://lh3.googleusercontent.com/9_EicIyb47DM7UBBBRWrv5j-mN0ygb9JqQmmy1NN4H0BzSurn7SOJo8Uaq6JWNrv6AK9eF6zu_ZXlutt=w2116",
+    "https://lh3.googleusercontent.com/FS8Rm6pW-x-BM8IaEdirGL4ZzTR84t6cNuoRbwJ-AQihLBAaohqsgi-Z0s3KM1lb5PG_rZyRudV5M8dj=w2116",
+    "https://lh3.googleusercontent.com/1C3xewLY4Z9AGhD3JTHjOtUIZROOfMUbgZW7CV6iYTDN5Lg9yrRbCyUvRxidZICMdR9wKoKcaQDj_JQM=w2116",
+    "https://lh3.googleusercontent.com/P5uOMZoyiyhWGswqWupz6_syLO4RiiGmvqnXpl7p7LZz16RvA3QnNr0Z6UbCm1lmS1upnJheHmhnAfKD=w2116",
+  ];
+
+  return (
+    <section id="sobre" className="relative py-28 px-5 sm:px-8 border-y border-border/40">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Texto */}
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 border border-accent/40 text-[10px] uppercase tracking-[0.35em] text-secondary font-bold mb-5">
+              <Music2 className="w-3 h-3" /> Nossa história
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95] text-foreground mb-8">
+              O Melhor Samba de São Paulo,{" "}
+              <span className="text-gradient-sun italic">Abençoado</span> por Todos os Santos
+            </h2>
+            <div className="space-y-5 text-muted-foreground text-base md:text-lg leading-relaxed">
+              <p>
+                Não é à toa que o <strong className="text-foreground">Templo – Bar de Fé</strong>{" "}
+                figura sempre nas listas das principais revistas e guias culturais como o melhor
+                samba de São Paulo. Mais do que um espaço para curtir grandes nomes da música e o
+                bom pagode de roda, nós entregamos a verdadeira alma da noite paulistana, unindo
+                alegria, tradição e uma atmosfera que você não encontra em nenhum outro lugar.
+              </p>
+              <p>
+                O nosso maior diferencial vai além do palco: somos a única casa abençoada por todos
+                os santos. Aqui, as boas energias, a devoção e a vibração contagiante do público se
+                encontram em um ambiente sagrado e acolhedor, criando uma experiência única de fé e
+                festa.
+              </p>
+              <p className="text-secondary font-semibold">
+                Sinta a energia. Viva o verdadeiro samba. Bem-vindo ao seu Templo!
+              </p>
+            </div>
+          </div>
+
+          {/* Carrossel */}
+          <div className="relative">
+            <div className="overflow-hidden rounded-3xl border border-border/60 shadow-deep" ref={emblaRef}>
+              <div className="flex">
+                {fotos.map((foto, i) => (
+                  <div
+                    key={i}
+                    className="flex-[0_0_100%] min-w-0"
+                  >
+                    <div className="aspect-square relative">
+                      <img
+                        src={foto}
+                        alt={`Foto do Templo Bar de Fé ${i + 1}`}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Controles */}
+            <div className="flex items-center justify-center gap-3 mt-5">
+              <button
+                onClick={() => emblaApi?.scrollPrev()}
+                disabled={!canScrollPrev}
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-sunset hover:text-primary-foreground hover:border-transparent transition-all disabled:opacity-30"
+                aria-label="Foto anterior"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <div className="flex gap-2">
+                {fotos.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => emblaApi?.scrollTo(i)}
+                    className="w-2 h-2 rounded-full bg-muted-foreground/40 hover:bg-secondary transition-colors"
+                    aria-label={`Ir para foto ${i + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => emblaApi?.scrollNext()}
+                disabled={!canScrollNext}
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-sunset hover:text-primary-foreground hover:border-transparent transition-all disabled:opacity-30"
+                aria-label="Próxima foto"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- LOCALIZAÇÃO ---------------- */
 function Localizacao() {
   return (
