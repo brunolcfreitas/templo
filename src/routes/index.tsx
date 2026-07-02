@@ -111,6 +111,9 @@ function Nav() {
           <a href="#programacao" onClick={() => setOpen(false)}>
             Programação
           </a>
+          <a href="#sobre" onClick={() => setOpen(false)}>
+            Sobre
+          </a>
           <a href="#localizacao" onClick={() => setOpen(false)}>
             Localização
           </a>
