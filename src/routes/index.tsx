@@ -7,6 +7,7 @@ import {
   MapPin,
   Instagram,
   Facebook,
+  Youtube,
   Music2,
   Sparkles,
   Ticket,
