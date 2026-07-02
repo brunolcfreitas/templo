@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Calendar,
   Clock,
@@ -14,9 +14,12 @@ import {
   Star,
   ChevronDown,
   ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { fetchEvents, formatDatePt, type ShowEvent } from "@/lib/events";
 import logoTemplo from "@/assets/logo-templo.png";
+import useEmblaCarousel from "embla-carousel-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
