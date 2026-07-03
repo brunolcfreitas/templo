@@ -166,7 +166,9 @@ function Hero() {
         </h1>
 
         <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-          Pagode, samba de raiz e a energia que move a noite paulistana. Bem-vindo ao{" "}
+          Pagode, samba de raiz e a energia que move a noite paulistana.
+          <br />
+          Bem-vindo ao{" "}
           <span className="text-secondary font-semibold">Templo — Bar de Fé</span>.
         </p>
 
