@@ -171,7 +171,7 @@ function Hero() {
           <span className="block text-foreground">de São Paulo</span>
         </h1>
 
-        <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+        <p className="text-base md:text-xl text-white max-w-2xl mx-auto mb-12 font-light leading-relaxed">
           Pagode, samba de raiz e a energia que move a noite paulistana.
           <br />
           Bem-vindo ao{" "}
