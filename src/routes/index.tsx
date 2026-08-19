@@ -77,6 +77,9 @@ function Nav() {
           <a href="#programacao" className="hover:text-secondary transition-colors">
             Programação
           </a>
+          <a href="#antecipada" className="hover:text-secondary transition-colors">
+            Antecipada
+          </a>
           <a href="#sobre" className="hover:text-secondary transition-colors">
             Sobre
           </a>
