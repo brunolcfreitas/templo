@@ -440,8 +440,7 @@ function VendaAntecipada() {
             Venda <span className="text-gradient-sun italic">antecipada</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">
-            Shows com ingressos promocionais disponíveis por tempo limitado. Garanta o seu antes
-            que acabe!
+            Garanta seu lugar nos maiores shows, com os melhores preços!
           </p>
         </div>
 
