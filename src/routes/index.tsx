@@ -825,6 +825,7 @@ function HomePage() {
       <Hero />
       <Marquee />
       <Programacao />
+      <VendaAntecipada />
       <SobreTemplo />
       <Localizacao />
       <Footer />
