@@ -406,6 +406,113 @@ function Programacao() {
   );
 }
 
+/* ---------------- VENDA ANTECIPADA ---------------- */
+function VendaAntecipada() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["events"],
+    queryFn: fetchEvents,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const antecipados =
+    data?.filter(
+      (event) =>
+        event.dateObj &&
+        event.dateObj >= new Date(new Date().setHours(0, 0, 0, 0)) &&
+        !event.entradaMasculina &&
+        !event.entradaFeminina
+    ) ?? [];
+
+  return (
+    <section id="antecipada" className="relative py-24 px-5 sm:px-8 bg-background/40">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/15 border border-secondary/40 text-[10px] uppercase tracking-[0.35em] text-secondary font-bold mb-5">
+            <Ticket className="w-3 h-3" /> Ingressos antecipados
+          </div>
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-foreground mb-4">
+            Venda <span className="text-gradient-sun italic">antecipada</span>
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">
+            Shows com ingressos promocionais disponíveis por tempo limitado. Garanta o seu antes
+            que acabe!
+          </p>
+        </div>
+
+        {isLoading && (
+          <div className="space-y-4">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div
+                key={i}
+                className="rounded-2xl bg-card border border-border/50 p-5 animate-pulse flex flex-col sm:flex-row sm:items-center gap-4"
+              >
+                <div className="h-4 bg-muted rounded w-24" />
+                <div className="h-5 bg-muted rounded w-48 flex-1" />
+                <div className="h-10 bg-muted rounded w-full sm:w-40" />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center py-12 text-muted-foreground">
+            <p>Não foi possível carregar os ingressos antecipados no momento.</p>
+          </div>
+        )}
+
+        {!isLoading && !error && antecipados.length === 0 && (
+          <div className="text-center py-12 text-muted-foreground">
+            <p>Nenhum show com venda antecipada no momento.</p>
+          </div>
+        )}
+
+        {!isLoading && !error && antecipados.length > 0 && (
+          <div className="space-y-3">
+            {antecipados.map((event, i) => (
+              <div
+                key={`antecipada-${event.data}-${event.artista}-${i}`}
+                className="group flex flex-col sm:flex-row sm:items-center gap-4 rounded-2xl bg-card border border-border/60 p-5 shadow-deep hover:border-secondary/50 transition-all"
+              >
+                <div className="flex items-center gap-3 sm:w-52 shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-sunset/20 flex items-center justify-center text-secondary">
+                    <Calendar className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-foreground font-bold text-sm uppercase tracking-wide">
+                      {formatDatePt(event.dateObj, event.data)}
+                    </div>
+                    {event.horario && (
+                      <div className="text-muted-foreground text-xs flex items-center gap-1 mt-0.5">
+                        <Clock className="w-3 h-3" /> {event.horario}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-display text-xl md:text-2xl text-foreground truncate">
+                    {event.artista}
+                  </h3>
+                </div>
+
+                <a
+                  href={event.link && event.link.trim() !== "" ? event.link : WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sunset text-primary-foreground font-bold uppercase tracking-[0.12em] text-xs hover:scale-[1.02] transition-transform shadow-glow"
+                >
+                  <Ticket className="w-4 h-4" />
+                  Comprar ingresso
+                </a>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- SOBRE ---------------- */
 function SobreTemplo() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
