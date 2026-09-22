@@ -73,29 +73,50 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Templo Bar de Fé — O Melhor Samba de São Paulo" },
-      { name: "description", content: "A casa de samba mais vibrante de SP. Confira a programação de shows ao vivo no Templo Bar de Fé, no Alto da Mooca." },
-      { name: "author", content: "Templo Bar de Fé" },
-      { property: "og:title", content: "Templo Bar de Fé — O Melhor Samba de São Paulo" },
-      { property: "og:description", content: "A casa de samba mais vibrante de SP. Confira a programação de shows ao vivo no Templo Bar de Fé, no Alto da Mooca." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Templo Bar de Fé — O Melhor Samba de São Paulo" },
-      { name: "twitter:description", content: "A casa de samba mais vibrante de SP. Confira a programação de shows ao vivo no Templo Bar de Fé, no Alto da Mooca." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b058584c-a295-4398-b616-20a7b286bcea/id-preview-875e20d9--9f327639-bc84-4c68-af89-5583c367a0fa.lovable.app-1782414254748.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b058584c-a295-4398-b616-20a7b286bcea/id-preview-875e20d9--9f327639-bc84-4c68-af89-5583c367a0fa.lovable.app-1782414254748.png" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" },
-    ],
-  }),
+  head: () => {
+    const measurementId =
+      typeof process !== "undefined"
+        ? process.env["GOOGLE_ANALYTICS_MEASUREMENT_ID"]
+        : undefined;
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Templo Bar de Fé — O Melhor Samba de São Paulo" },
+        { name: "description", content: "A casa de samba mais vibrante de SP. Confira a programação de shows ao vivo no Templo Bar de Fé, no Alto da Mooca." },
+        { name: "author", content: "Templo Bar de Fé" },
+        { property: "og:title", content: "Templo Bar de Fé — O Melhor Samba de São Paulo" },
+        { property: "og:description", content: "A casa de samba mais vibrante de SP. Confira a programação de shows ao vivo no Templo Bar de Fé, no Alto da Mooca." },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "Templo Bar de Fé — O Melhor Samba de São Paulo" },
+        { name: "twitter:description", content: "A casa de samba mais vibrante de SP. Confira a programação de shows ao vivo no Templo Bar de Fé, no Alto da Mooca." },
+        { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b058584c-a295-4398-b616-20a7b286bcea/id-preview-875e20d9--9f327639-bc84-4c68-af89-5583c367a0fa.lovable.app-1782414254748.png" },
+        { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b058584c-a295-4398-b616-20a7b286bcea/id-preview-875e20d9--9f327639-bc84-4c68-af89-5583c367a0fa.lovable.app-1782414254748.png" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" },
+      ],
+      scripts: measurementId
+        ? [
+            {
+              async: true,
+              src: `https://www.googletagmanager.com/gtag/js?id=${measurementId}`,
+            },
+            {
+              children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${measurementId}');`,
+            },
+          ]
+        : undefined,
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
