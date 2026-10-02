@@ -74,11 +74,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => {
-    const measurementId =
-      typeof process !== "undefined"
-        ? process.env["GOOGLE_ANALYTICS_MEASUREMENT_ID"]
-        : undefined;
-
     return {
       meta: [
         { charSet: "utf-8" },
@@ -101,20 +96,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
         { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" },
       ],
-      scripts: measurementId
-        ? [
-            {
-              async: true,
-              src: `https://www.googletagmanager.com/gtag/js?id=${measurementId}`,
-            },
-            {
-              children: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${measurementId}');`,
-            },
-          ]
-        : undefined,
     };
   },
   shellComponent: RootShell,
@@ -124,6 +105,7 @@ gtag('config', '${measurementId}');`,
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const gaMeasurementId = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY;
   const metaPixelCode = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -138,6 +120,22 @@ fbq('track', 'PageView');`;
   return (
     <html lang="en">
       <head>
+        {gaMeasurementId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaMeasurementId}');`,
+              }}
+            />
+          </>
+        ) : null}
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: metaPixelCode }} />
       </head>
