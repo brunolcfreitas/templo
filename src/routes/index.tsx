@@ -47,6 +47,8 @@ const WHATSAPP_URL =
   "https://wa.me/5511949861693?text=" +
   encodeURIComponent("Olá! Quero saber mais sobre o Templo Bar de Fé.");
 
+const WHATSAPP_FLOAT_URL = "https://wa.me/551126011441";
+
 /* ---------------- NAV ---------------- */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -808,7 +810,7 @@ function Footer() {
 function WhatsAppFloat() {
   return (
     <a
-      href={WHATSAPP_URL}
+      href={WHATSAPP_FLOAT_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Conversar no WhatsApp"
